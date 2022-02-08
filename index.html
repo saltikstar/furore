@@ -1,0 +1,1040 @@
+<html amp lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <link rel="canonical" href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+        
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+        
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+        
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+        
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+        
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+    </style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+    <style amp-custom>
+         :root {
+            --color-primary: #ce2424;
+            --space-1: .5rem;
+            /* 8px */
+            --space-4: 2rem;
+            /* 32px */
+        }
+        /* Styles for the flex layout based tabs */
+        
+        amp-selector[role=tablist].tabs-with-flex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        amp-selector[role=tablist].tabs-with-flex [role=tab] {
+            flex-grow: 1;
+            /* custom styling, feel free to change */
+            text-align: center;
+            padding: var(--space-1);
+        }
+        
+        amp-selector[role=tablist].tabs-with-flex [role=tab][selected] {
+            outline: none;
+            /* custom styling, feel free to change */
+            border-bottom: 2px solid var(--color-primary);
+        }
+        
+        amp-selector[role=tablist].tabs-with-flex [role=tabpanel] {
+            display: none;
+            width: 100%;
+            order: 1;
+            /* must be greater than the order of the tab buttons to flex to the next line */
+            /* custom styling, feel free to change */
+            padding: var(--space-4);
+        }
+        
+        amp-selector[role=tablist].tabs-with-flex [role=tab][selected]+[role=tabpanel] {
+            display: block;
+        }
+        /* Styles for the selector based tabs */
+        
+        amp-selector[role=tablist].tabs-with-selector {
+            display: flex;
+        }
+        
+        amp-selector[role=tablist].tabs-with-selector [role=tab][selected] {
+            outline: none;
+            /* custom styling, feel free to change */
+            border-bottom: 2px solid var(--color-primary);
+        }
+        
+        amp-selector[role=tablist].tabs-with-selector {
+            display: flex;
+        }
+        
+        amp-selector[role=tablist].tabs-with-selector [role=tab] {
+            /* custom styling, feel free to change */
+            width: 100%;
+            text-align: center;
+            padding: var(--space-1);
+        }
+        
+        amp-selector.tabpanels [role=tabpanel] {
+            display: none;
+            /* custom styling, feel free to change */
+            padding: var(--space-4);
+        }
+        
+        amp-selector.tabpanels [role=tabpanel][selected] {
+            outline: none;
+            display: block;
+        }
+        
+        amp-selector[role=tablist] [role=tab][selected]+[role=tabpanel] {
+            display: block;
+        }
+        
+        #custom-button .amp-carousel-button-prev {
+            left: 5%;
+            background-image: url('https://amp.dev/static/samples/img/carousel-arrow-left.png');
+        }
+        
+        #custom-button .amp-carousel-button-next {
+            right: 5%;
+            background-image: url('https://amp.dev/static/samples/img/carousel-arrow-right.png');
+        }
+    </style>
+    <title>Furore Nails Shop в г. Нур-Султан</title>
+    <meta name="description" content="Furore Nails Shop оптово-розничный магазин товаров для маникюра в г. Нур-Султан">
+    <meta name="keywords" content="">
+    <!-- Favicons -->
+    <link href="assets/img/fav.ico" rel="icon">
+    <link href="assets/img/fav.ico" rel="apple-touch-icon">
+    <script async="" custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <script async="" src="https://cdn.ampproject.org/v0.js"></script>
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <script async custom-element="amp-base-carousel" src="https://cdn.ampproject.org/v0/amp-base-carousel-0.1.js"></script>
+
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class=" d-flex align-items-center header-transparent">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+            <div class="logo">
+                <a href="https://lp.furore.kz/"><img src="assets/img/logo.svg"><span class="text-white"></span></a>
+                <span class="slogan">Furore Nails Shop оптово-розничный магазин товаров для маникюра в г. Нур-Султан</span>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="#">Акции</a></li>
+                    <li><a class="nav-link scrollto" href="#cat">Каталог</a></li>
+                    <li><a class="nav-link scrollto" href="#nab">Наборы</a></li>
+                    <li><a class="nav-link scrollto" href="#preim">Преимущества</a></li>
+                    <li><a class="nav-link scrollto" href="#otz">Отзывы</a></li>
+                    <li><a class="nav-link scrollto" href="#about">О нас</a></li>
+                    <li><a class="nav-link scrollto" href="#footer">Контакты</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            <!-- .navbar -->
+
+            <div class="phone"><span class="icon"><img src="assets/img/main_callicon.svg" alt=""></span><a href="tel:+77022323231" class="ph"> +7 (702) 232 – 32 – 31 </a>
+            </div>
+
+        </div>
+    </header>
+    <!-- ======= Hero Section ======= -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+        <div class="hero-container container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+
+                    <h1 id="uzag">Приобрети все от пилочек до оборудования для своего салона в одном месте
+                    </h1>
+
+                    <p class="udesc animate__animated animate__fadeInDown">
+                        Оставь заявку и получи 1000 тг на первый заказ
+                    </p>
+
+                    <a href="" class="btn linear" data-bs-toggle="modal" data-bs-target="#exampleModal">Оставить заявку</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="cat" class="cat">
+        <div class="container">
+            <div class="section-title">
+                <h2>Каталог товаров</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="cat-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/oborud/1.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/oborud/1.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/oborud/2.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/oborud/2.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/oborud/3.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/oborud/3.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="desc">
+                            <h4>Оборудование</h4>
+                            <div class="flex align-items-center justify-content-between mt-3">
+                                <div class="price">от 2500 тг</div>
+                                <a href="" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="cat-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/instr/1.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/instr/1.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/instr/2.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/instr/2.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/instr/3.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/instr/3.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/instr/4.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/instr/4.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/instr/5.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/instr/5.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="desc">
+                            <h4>Инструменты</h4>
+                            <div class="flex align-items-center justify-content-between mt-3">
+                                <div class="price">от 250 тг</div>
+                                <a href="" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="cat-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/lak/1.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/lak/1.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/lak/2.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/lak/2.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/lak/3.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/lak/3.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="desc">
+                            <h4>Гель лаки</h4>
+                            <div class="flex align-items-center justify-content-between mt-3">
+                                <div class="price">от 500 тг</div>
+                                <a href="" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="cat-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/mater/1.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/mater/1.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/mater/2.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/mater/2.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/mater/3.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/mater/3.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/mater/4.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/mater/4.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/mater/5.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/mater/5.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/mater/6.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/mater/6.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/mater/7.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/mater/7.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="desc">
+                            <h4>Материалы</h4>
+                            <div class="flex align-items-center justify-content-between mt-3">
+                                <div class="price">от 25 тг</div>
+                                <a href="" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="cat-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/dep/1.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/dep/1.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/dep/2.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/dep/2.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/dep/3.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/dep/3.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/dep/4.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/dep/4.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="desc">
+                            <h4>Товары для депиляции</h4>
+                            <div class="flex align-items-center justify-content-between mt-3">
+                                <div class="price">от 500 тг</div>
+                                <a href="" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="cat-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/kosm/1.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/kosm/1.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/kosm/2.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/kosm/2.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/kosm/3.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/kosm/3.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/kosm/4.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/kosm/4.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="desc">
+                            <h4>Уходовая косметика</h4>
+                            <div class="flex align-items-center justify-content-between mt-3">
+                                <div class="price">от 250 тг</div>
+                                <a href="" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="nab" class="cat">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наборы</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="cat-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/nab/1.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/nab/1.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/nab/2.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/nab/2.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="desc">
+                            <h4>Набор "Начинающий мастер"</h4>
+                            <ol>
+                                <li>Лампа Sun 5</li>
+                                <li>Фольга</li>
+                                <li>Кусачки D28</li>
+                                <li>Domix Nail Prep</li>
+                                <li>Пушер</li>
+                                <li>Масло BNC</li>
+                                <li>Салфетки безворсовые</li>
+                                <li>Палетка матовая</li>
+                                <li>Баф-мини</li>
+                                <li>Пластиковые палочки</li>
+                                <li>Пилка OPI 100/180 ромб</li>
+                                <li>Пилка Sunshine</li>
+                                <li>База Rubber Adricoco</li>
+                                <li>Топ без липкого слоя Adricoco</li>
+                                <li>Primer Adricoco</li>
+                                <li>Гель-лак Adricoco</li>
+                                <li>Гель-лак Vinimay серия Lipstick</li>
+                                <li>Слайдер Laque</li>
+                                <li>Пайетки и лента</li>
+                            </ol>
+                            <div class="flex align-items-center justify-content-between mt-3">
+                                <div class="price">10900 тг вместо <del>14380 тг</del></div>
+                                <a href="" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="cat-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/nab/pr1.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/nab/pr1.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/nab/pr2.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/nab/pr2.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="desc">
+                            <h4>Набор "Продвинутый мастер"</h4>
+                            <ol>
+                                <li>Лампа Sunuv Sun 1</li>
+                                <li>База Kodi Rubber base</li>
+                                <li>Топ без липкого слоя Kodi</li>
+                                <li>Ультрабонд Kodi</li>
+                                <li>Nail fresher Kodi</li>
+                                <li>Гель-лак Adricoco</li>
+                                <li>Гель-лак Vinimay</li>
+                                <li>Средство для снятия лака</li>
+                                <li>Кусачки D22 NGHIA</li>
+                                <li>Пушер Staleks classic 2011</li>
+                                <li>Пластиковые палочки</li>
+                                <li>Салфетки безворсовые</li>
+                                <li>Крем для рук MILV</li>
+                                <li>Масло для кутикулы</li>
+                                <li>Баф Sunshine</li>
+                                <li>Пилка super луна</li>
+                                <li>Пилка тонкая Sunshine</li>
+                                <li>Палетка "ромашка"</li>
+                                <li>Наклейки и слайдеры</li>
+                                <li>Фольга для литья и лента </li>
+                            </ol>
+
+                            <div class="flex align-items-center justify-content-between mt-3">
+                                <div class="price">21900 тг вместо <del>27530 тг</del></div>
+                                <a href="" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="cat-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="img mx-auto">
+                                        <a href="assets/img/cat/nab/prm1.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1"><img src="assets/img/cat/nab/prm1.jpg" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="desc">
+                            <h4>Набор "PRO мастер"</h4>
+
+                            <ol>
+                                <li>Аппарат Strong 2041102L Lux</li>
+                                <li>Лампа Sunuv Sun2C</li>
+                                <li>Салфетки безворсовые</li>
+                                <li>Маска Pitta</li>
+                                <li>Обезжириватель Gel off cleaner</li>
+                                <li>Кусачки Sunshine SS 3</li>
+                                <li>Палетка веерная миндаль на кольце</li>
+                                <li>UNO Rubber base</li>
+                                <li>Топ без липкого слоя</li>
+                                <li>UNO primer</li>
+                                <li>Гель-лак Grattol</li>
+                                <li>Масло для кутикулы Grattol</li>
+                                <li>Крем для рук MTLV</li>
+                                <li>Пушер Sunshine P22</li>
+                                <li>Пластиковые палочки</li>
+                                <li>Щетка</li>
+                                <li>Кисти 3в1</li>
+                                <li>Алмазная фреза</li>
+                                <li>Твердосплавная фреза</li>
+                                <li>Баф ромб цветной</li>
+                                <li>Основа металлическая "луна"</li>
+                                <li>Файлы сменные</li>
+                                <li>Наклейки и слайдеры</li>
+                                <li>Хруст. крошка и неоновый пигмент</li>
+                                <li>Пайетки, фольга для литься и лента</li>
+                            </ol>
+                            <div class="flex align-items-center justify-content-between mt-3">
+                                <div class="price">66900 тг вместо <del>80940 тг</del></div>
+                                <a href="" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Заказать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Action Section ======= -->
+
+    <section id="akc">
+        <div class="container position-relative">
+            <div class="section-title">
+                <h2>Наши Акции</h2>
+            </div>
+
+            <div class="row justify-content-center g-2">
+                <div class="col-lg col-6 text-center">
+                    <a href="assets/img/akc/1.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1">
+                        <amp-img src="assets/img/akc/1.jpg" width="400" height="400" layout="responsive" alt="a sample image"></amp-img>
+                    </a>
+
+                </div>
+                <div class="col-lg col-6 text-center">
+                    <a href="assets/img/akc/2.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1">
+                        <amp-img src="assets/img/akc/2.jpg" width="400" height="400" layout="responsive" alt="a sample image"></amp-img>
+                    </a>
+
+                </div>
+                <div class="col-lg col-6 text-center">
+                    <a href="assets/img/akc/3.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1">
+                        <amp-img src="assets/img/akc/3.jpg" width="400" height="400" layout="responsive" alt="a sample image"></amp-img>
+                    </a>
+
+                </div>
+                <div class="col-lg col-6 text-center">
+                    <a href="assets/img/akc/4.jpg" class="glightbox3 gallery-lightbox" data-gallery="gallery1">
+                        <amp-img src="assets/img/akc/4.jpg" width="400" height="400" layout="responsive" alt="a sample image"></amp-img>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- End Action Section -->
+    <!-- ======= About Section ======= -->
+    <section id="preim" class="preim">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-title2">
+                        <h2>Почему выбирают нас?
+                        </h2>
+                    </div>
+                    <div class="punkt bord-b align-items-center">
+                        <div class="num">01</div>
+                        <div class="desc">Более 7000 наименований товаров</div>
+                    </div>
+                    <hr class="w-75 d-xs-none">
+                    <div class="punkt align-items-center">
+                        <div class="num">02</div>
+                        <div class="desc">С 2013 года на рынке
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-5 offset-lg-1 d-xs-none">
+                    <img src="assets/img/whyus1.png" alt="">
+                </div>
+                <div class="col-lg-5 d-xs-none">
+                    <img src="assets/img/whyus2.png" alt="">
+                </div>
+                <div class="col-lg-6 relative brd-v offset-lg-1">
+                    <div class="punkt align-items-center">
+                        <div class="num">03</div>
+                        <div class="desc">Доставка по всему Казахстану
+                        </div>
+                    </div>
+                    <div class="punkt align-items-center">
+                        <div class="num">04</div>
+                        <div class="desc">Бесплатная доставка при заказе от 10000 тг
+                        </div>
+                    </div>
+                    <div class="punkt align-items-center">
+                        <div class="num">05</div>
+                        <div class="desc">Удобное расположение на двух берегах столицы
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="otz" class="testimonials">
+        <div class="container position-relative">
+            <div class="section-title">
+                <h2>Отзывы наших клиентов</h2>
+            </div>
+            <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper align-items-center">
+                    <div class="swiper-slide">
+                        <div class="testimonial-item  vid">
+                            <img src="assets/img/testim/1.jpg" alt="">
+                            <a href="assets/img/testim/1.jpg" class="glightbox3 play" data-gallery="gallery3"></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-item  vid">
+                            <img src="assets/img/testim/2.jpg" alt="">
+                            <a href="assets/img/testim/2.jpg" class="glightbox3 play" data-gallery="gallery3"></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-item  vid">
+                            <img src="assets/img/testim/3.jpg" alt="">
+                            <a href="assets/img/testim/3.jpg" class="glightbox3 play" data-gallery="gallery3"></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-item  vid">
+                            <img src="assets/img/testim/4.jpg" alt="">
+                            <a href="assets/img/testim/4.jpg" class="glightbox3 play" data-gallery="gallery3"></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-item  vid">
+                            <img src="assets/img/testim/5.jpg" alt="">
+                            <a href="assets/img/testim/5.jpg" class="glightbox3 play" data-gallery="gallery3"></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-item  vid">
+                            <img src="assets/img/testim/6.jpg" alt="">
+                            <a href="assets/img/testim/6.jpg" class="glightbox3 play" data-gallery="gallery3"></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-item  vid">
+                            <img src="assets/img/testim/7.jpg" alt="">
+                            <a href="assets/img/testim/7.jpg" class="glightbox3 play" data-gallery="gallery3"></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-item  vid">
+                            <img src="assets/img/testim/8.jpg" alt="">
+                            <a href="assets/img/testim/8.jpg" class="glightbox3 play" data-gallery="gallery3"></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-item  vid">
+                            <img src="assets/img/testim/9.jpg" alt="">
+                            <a href="assets/img/testim/9.jpg" class="glightbox3 play" data-gallery="gallery3"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+    </section>
+    <!-- End Testimonials Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title2">
+                <h2>О компании</h2>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-5 relative">
+                    <img src="assets/img/video.png" alt="">
+                    <a href="assets/img/video.mp4" class="glightbox3 play" data-gallery="gallery3"></a>
+                </div>
+                <div class="col-lg-6 offset-lg-1 brd-v">
+                    <div class="pt-5 pb-lg-5">
+                        <p>Компания «Furore Nails Shop» с 2013 года обслуживает своих клиентов и заботиться об уровне предлагаемых услуг.</p>
+                        <p>В наших магазинах вы всегда найдете большой ассортимент оригинальных товаров от производителей для маникюра и педикюра, доступные цены и любовь к каждому покупателю. </p>
+                        <p>Мы постоянно обновляем товарную линейку и максимально сокращаем сроки от обработки заказа до его получения.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="book-a-table" class="book-a-table">
+        <div class="container">
+            <div class="row align-items-center ">
+
+                <div class="section-title2 text-center mb-lg-5">
+                    <h2>Не нашли нужный товар?
+                    </h2>
+                    <p>Оставьте заявку, и мы перезвоним вам в ближайшее время
+                    </p>
+                </div>
+
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-7 col-md-7 form-group justify-content-center">
+                        <div id="result_form"></div>
+                        <form id="form_id" action="ajax/action_ajax_form.php" method="post">
+                            <div class="form-group mb-2">
+                                <label for="name">Имя</label>
+                                <input type="text" id="name" name="name" required="" placeholder="Ваше имя">
+                            </div>
+                            <div class="form-group mt-2 mt-md-0">
+                                <label for="phone">Телефон</label>
+                                <input type="text" class="mask" id="phone" name="phone" required="" placeholder="Введите свой телефон" minlength="11" maxlength="16">
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 mt-3 text-center">
+                                    <input type="submit" id="btn" class="btn w-100" value="Оставить заявку">
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="textcall">или позвоните по номеру
+                                        <div class="ph"><a href="tel:+77022323231">+7 (702) 232 – 32 – 31</a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                    <div class="col-lg-4 offset-md-1 xs-txt-center mt-lg-0 mt-5"><img src="assets/img/form.png" alt=""></div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="section-title text-center">
+                    <h2>Контакты</h2>
+                </div>
+                <div class="col-lg-4">
+                    <div class="flex align-items-center">
+                        <div><img src="assets/img/icons/callicon.png" alt=""></div>
+                        <div>
+                            <a href="tel:+77022323231">+7(702)232-32-31
+                            </a><br>
+                            <a href="tel:+77759495555">+7(775)949-55-55
+                            </a><br>
+                            <a href="tel:+77025225758">+7(702)522-57-58
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex align-items-center">
+                        <div><img src="assets/img/icons/whatsappicon.png" alt=""></div>
+                        <div>
+                            <a href="https://api.whatsapp.com/send?phone=77022323231">+7(702)232-32-31
+                            </a><br>
+
+                        </div>
+                    </div>
+                    <div class="flex align-items-center">
+                        <div><img src="assets/img/icons/locationicon.png" alt=""></div>
+                        <p><a href="https://go.2gis.com/k4tz6i" target="_blank">г. Нур-Султан,<br> ул. Уалиханова 9/2,<br> Ул. Сарайшык, 4</a>
+                        </p>
+                    </div>
+                    <div class="flex align-items-center">
+                        <div><img src="assets/img/icons/timeicon.png" alt=""></div>
+
+                        <div>Пн-сб 09:00 - 18:00
+                        </div>
+                    </div>
+                    <div class="flex align-items-center">
+                        <div><img src="assets/img/icons/instaicon.png" alt=""></div>
+                        <div><a href="http://instagram.com/furore_nailstore" target="_blank">@furore_nailstore</a> </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+
+                    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+                    <div id="map" style="width:100%; height:528px"></div>
+                    <script type="text/javascript">
+                        var map;
+
+                        DG.then(function() {
+                            map = DG.map('map', {
+                                center: [51.165449, 71.438117],
+                                zoom: 16,
+                                scrollWheelZoom: false
+                            });
+
+                            DG.marker([51.165449, 71.438117]).addTo(map).bindPopup("Актобе");
+                        });
+                    </script>
+
+                </div>
+            </div>
+            <div class="copyright mt-5">
+                &copy; Copyright <strong><span>Furore</span></strong>
+            </div>
+            <div class="credits">
+                Сайт разработан <a href="https://crp.kz/" target="_blank"> Отделом интернет-маркетинга Центра Развития Предпринимателей</a>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <div class="calli cleft d-md-none"><a href="https://api.whatsapp.com/send?phone=77022323231
+" target="_blank"><i class="bi bi-whatsapp"></i></a></div>
+    <div class="calli cright d-md-none"><a href="tel:+77022323231
+"><i class="bi bi-telephone"></i></a></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="ajax/ajax.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="section-title2 text-center mb-5">
+                        <h5>Оставьте заявку и один из наших экспертов перезвонит вам в течение 10 минут!</h2>
+                            <div class="zag__descr"></div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-md-8 form-group justify-content-center text-center">
+                            <div id="result_form2"></div>
+                            <form id="form_id2" action="ajax/action_ajax_form.php" method="post">
+                                <div class="form-group mb-2">
+                                    <input type="text" name="name" required="" placeholder="Ваше имя">
+                                </div>
+                                <div class="form-group mt-2 mt-md-0">
+                                    <input type="text" class="mask" name="phone" required="" placeholder="Введите свой телефон" minlength="11" maxlength="16">
+                                </div>
+                                <div class="form-group mt-2 mt-md-0">
+                                    <input type="hidden" name="tovar">
+                                </div>
+                                <div class="col-lg-12 mt-md-0 text-center">
+                                    <input type="submit" id="btn2" class="btn w-100" value="Отправить">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="textcall">или позвоните по номеру
+                        <div class="ph"><a href="tel:+77022323231">+7 (702) 232-32-31</a></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript">
+        //Присваиваем переменной ID нужного popUp  
+        var popupID = "#exampleModal";
+        //При клике на определённую карточку со ссылкой ниже'data-toggle','dropdown'
+        // $("div").data('bs-target')=='#exampleModal';
+        //var mydata = $(".modal").data();
+
+        $('.card .btn').click(function() {
+            //Ищем родительский элемент выбранной карточки и добавляем класс-метку к нему
+            $(this).closest(".card").addClass("selectproduct");
+            //Присваиваем значение Title выбранной карточки переменной 
+            var prodname = $(".selectproduct .desc h4").text();
+            //Присваиваем полю Title в popUp Форме значение заголовка Title из карточки
+            $(popupID + " .zag__descr").text(prodname);
+            //Присваиваем значение Title нашему скрытому полю с именем selectposition
+            $("[name='tovar']").val(prodname);
+            //Удаляем класс-метку с карточки
+            $(".card").removeClass("selectproduct");
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <!--Маска для номера телефона-->
+    <script>
+        $(function($) {
+            $('.mask').mask('+0(000)000 00 00');
+        });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-196921547-99"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-196921547-99');
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(87422196, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/87422196" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <script>
+        $(document).ready(function() {
+            $("a[href^='tel:']").attr("onclick", "gtag('event', 'send', {'event_category': 'phone','event_action': 'click'}); ym(87422196, 'reachGoal', 'phone-click'); return true;");
+            $("a[href^='https://api.whatsapp.com/send']").attr("onclick", "gtag('event', 'send', {'event_category': 'whatsapp','event_action': 'click'}); ym(87422196, 'reachGoal', 'whatsapp-click'); return true;");
+            $("form").attr("onsubmit", "gtag('event', 'send', {'event_category': 'form','event_action': 'send'}); ym(87422196, 'reachGoal', 'form-send'); return true;");
+            $("a[href^='https://go.2gis.com/']").attr("onclick", "gtag('event', 'send', {'event_category': 'gis2','event_action': 'click'}); ym(87422196,'reachGoal','gis2-click'); return true;");
+            $("a[href^='https://2gis.kz/']").attr("onclick", "gtag('event', 'send', {'event_category': 'gis2','event_action': 'click'}); ym(87422196,'reachGoal','gis2-click'); return true;");
+        });
+    </script>
+
+</body>
+
+</html>
