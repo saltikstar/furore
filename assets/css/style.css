@@ -1656,17 +1656,13 @@ section#cert {
     }
 }
 
-
+.desc ol {
+    margin-top: 30px;
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 
-section#book-a-table {
-    background: url(../img/kons.jpg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: 100%, 100%;
-}
 
 #footer {
     font-size: 18px;
@@ -1943,7 +1939,11 @@ img {
     background: transparent;
     border: 2px solid #f9cebe!important;
 }
-
+input#btn2, .book-a-table .btn,.btn[type=submit] {
+    background: #238585;
+    color: #fff;
+    margin-top: 10px;
+}
 .svimg {
     font-size: 1.5em;
     color: #00245b;
